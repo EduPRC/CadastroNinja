@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Nome</td>
+        <td>CPF</td>
+        <td>Email</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ninja:${ninjas}">
+        <td th:text="${ninja.id}"></td>
+        <td th:text="${ninja.nome}"></td>
+        <td th:text="${ninja.cpf}"></td>
+        <td th:text="${ninja.email}"></td>
+        <td>
+            <a th:href="@{/ui?pesquisar/{id}(id=${ninja.id})}">Detalhes</a>
+            <a th:href="@{/ui?deletar/{id}(id=${ninja.id})}">Apagar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
