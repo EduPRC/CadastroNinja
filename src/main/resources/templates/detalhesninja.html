@@ -2,11 +2,9 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Detalhes</title>
 </head>
 <body>
-<h1>Ninja</h1>
-<h2><a th:href="@{/ui/cadastrarninjas}">Novo Ninja</a></h2>
 <table>
     <thead>
     <tr>
@@ -17,16 +15,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="ninja:${ninjas}">
+    <tr>
         <td th:text="${ninja.id}"></td>
         <td th:text="${ninja.nome}"></td>
         <td th:text="${ninja.cpf}"></td>
         <td th:text="${ninja.email}"></td>
-        <td>
-            <a th:href="@{/ui/pesquisarninjas/{id}(id=${ninja.id})}">Detalhes</a>
-            <a th:href="@{/ui/editar/{id}(id=${ninja.id})}">Editar</a>
-            <a th:href="@{/ui/deletar/{id}(id=${ninja.id})}">Apagar</a>
-        </td>
     </tr>
     </tbody>
 </table>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Ninja</title>
+</head>
+<body>
+<h1>Editar Ninja</h1>
+<form th:action="@{/ui/atualizar/{id}(id=${ninja.id})}" method="post" th:object="${ninja}">
+    <input type="hidden" th:field="*{id}" />
+
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome" th:field="*{nome}" />
+
+    <label for="cpf">CPF:</label>
+    <input type="text" name="cpf" id="cpf" th:field="*{cpf}" />
+
+    <label for="email">E-mail:</label>
+    <input type="text" name="email" id="email" th:field="*{email}" />
+
+    <button type="submit">Salvar Alterações</button>
+</form>
+</body>
+</html>

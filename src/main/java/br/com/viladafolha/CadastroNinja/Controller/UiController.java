@@ -39,4 +39,31 @@ public class UiController {
         ninjaService.cadastrar(ninja);
         return "redirect:/ui/listarninjas";
         }
+
+    @GetMapping("/deletar/{id}")
+    public String deletarNinja(@PathVariable("id") Long id) {
+        ninjaService.deletar(id);
+        return "redirect:/ui/listarninjas";
+    }
+
+    @GetMapping("/editar/{id}")
+    public String mostrarFormularioEdicao(@PathVariable("id") Long id, Model model) {
+        NinjaEntity ninja = ninjaService.pesquisar(id);
+        model.addAttribute("ninja", ninja);
+        return "editarNinja";
+    }
+
+    @PostMapping("/atualizar/{id}")
+    public String atualizarNinja(@PathVariable("id") Long id, @ModelAttribute NinjaEntity ninjaAtualizado) {
+        ninjaService.alterar(id, ninjaAtualizado);
+        return "redirect:/ui/listarninjas"; 
+    }
+
+    @GetMapping("/pesquisarninjas/{id}")
+    public String pesquisarNinja(@PathVariable("id") Long id, Model model) {
+        NinjaEntity ninja = ninjaService.pesquisar(id);
+        model.addAttribute("ninja", ninja);
+        return "detalhesninja";
+    }
+
 }
